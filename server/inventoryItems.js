@@ -27,30 +27,3 @@ const inventoryItems = [
         inpack: false
     }
 ]
-
-module.exports = {
-getItems (req, res) {
-    res.status(200).send(inventoryItems)
-},
-addItem (req, res) {
-    inventoryItems.push(req.body)
-    res.status(200).send(inventoryItems)
-},
-updateItem (req, res) {
-    const {item} = req.params
-    const {price} = req.body
-    const index = inventoryItems.findIndex(el => (
-        el.item === item
-    ))
-    inventoryItems[index].price = price
-    res.status(200).send(inventoryItems)
-},
-deleteItem (req, res) {
-    const {item} = req.params
-    const index = inventoryItems.findIndex(el => (
-        el.item === item
-    ))
-    inventoryItems.splice(index, 1)
-    res.status(200).send(inventoryItems)
-}
-}
