@@ -25,6 +25,24 @@ const inventoryItems = [
         weight: 1.4,
         image: 'https://www.klymit.com/pub/media/catalog/product/cache/small_image/320x380/beff4985b56e3afdbeabfc89641a4582/a/r/armoredv_whitebackground.png',
         inpack: false
+    },
+    {
+        item: 'Jetboil',
+        description: 'Jetboil cooking stove',
+        price: 100,
+        category: 'food',
+        weight: .8,
+        image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
+        inpack: false
+    },
+    {
+        item: 'Jetboil',
+        description: 'Jetboil cooking stove',
+        price: 100,
+        category: 'food',
+        weight: .8,
+        image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
+        inpack: false
     }
 ]
 

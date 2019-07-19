@@ -16,15 +16,68 @@ body {
 }
 .shelf {
   border: solid black;
-  height: 20vh;
+  height: 30vh;
   background-color: white;
   margin-top: 5px;
   margin-bottom: 5px;
 }
 .inputs {
   border: solid red;
-  height: 15vh;
+  height: 10vh;
   background-color: white;
   /* display: flex;
   justify-content: space-between; */
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba (0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.shelf {
+  width: 80vw;
+  display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	align-content: space-between;
+  overflow: scroll;
+}
+.itemBox {
+  display: flex;
+  justify-content: space-between;
+  height: 12vh;
+  width: 39vw;
+  background-color: lightgray;
+  margin: 5px;
+}
+.itemInfo {
+  display: flex;
+  align-items: center;
+}
+.itemPic {
+  height: 50px;
+}
+.itemS {
+  font-size: .8em;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.itemButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

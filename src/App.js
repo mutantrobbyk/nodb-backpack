@@ -18,6 +18,9 @@ export default class App extends Component {
       this.setState({ allGear: res.data })
     })
   }
+  displayGear() {
+    
+  }
   addItemToGear (item, body) {
     console.log('addItemToGear')
     axios.put(`/api/backpack-items/${item}`,body).then(res => {
@@ -31,7 +34,10 @@ export default class App extends Component {
       <body>
       <div>
         <Backpack/>
-        <Inventory addItemToGear={this.addItemToGear}/>
+        <Inventory 
+        addItemToGear={this.addItemToGear}
+        allGear={this.state.allGear}
+        />
       </div>
       </body>
     )
