@@ -26,12 +26,12 @@ export default class NewItem extends Component {
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='weight'/>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='image'/>
               </div>
-              <div class='dropdown'>
+              {/* <div class='dropdown'>
                   <span>In Pack? </span>
                   <div class='dropdown-content'>
                       <p>false</p>
                   </div>
-              </div>
+              </div> */}
             <button onClick={() => this.props.addItemToGear(this.state)}>Add Item</button>
             </div>
               

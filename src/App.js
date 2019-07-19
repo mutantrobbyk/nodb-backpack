@@ -8,9 +8,12 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      allGear: []
+      allGear: [],
+      gearPacked: []
     };
     this.addItemToGear = this.addItemToGear.bind(this);
+    this.updateItem = this.updateItem.bind(this)
+    this.deleteItem = this.deleteItem.bind(this)
   }
   componentDidMount() {
     axios.get("/api/backpack-items").then(res => {
@@ -23,10 +26,24 @@ export default class App extends Component {
       this.setState({ allGear: res.data });
     });
   }
-  updateItem(item, body) {
-    axios.put(`/api/backpack-items/${item}`, body).then(res => {
+  updateItem(id, body) {
+    axios.put(`/api/backpack-items/${id}`, body).then(res => {
       this.setState({ allGear: res.data });
     });
+  }
+
+  deleteItem = async(id) =>  {
+    let response = await axios.delete(`/api/backpack-items/${id}`) //Sam wrot this to solve my problem...
+    this.setState({
+      allGear: response.data
+    })
+  }
+
+
+  packItem (){
+    this.setState({
+      gearPacked: ''
+    })
   }
 
   render() {
@@ -36,8 +53,10 @@ export default class App extends Component {
         <div>
           <Backpack />
           <Inventory
+            deleteItem={this.deleteItem}
             addItemToGear={this.addItemToGear}
             allGear={this.state.allGear}
+            updateItem={this.updateItem}
           />
         </div>
       </body>

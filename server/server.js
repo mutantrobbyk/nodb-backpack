@@ -8,8 +8,8 @@ app.use(express.json())
 
 app.get('/api/backpack-items', inventoryCtrl.getItems)
 app.post('/api/backpack-items', inventoryCtrl.addItem)
-app.put('/api/backpack-items/:item', inventoryCtrl.updateItem)
-app.delete('/api/backpack-items/:item', inventoryCtrl.deleteItem)
+app.put('/api/backpack-items/:id', inventoryCtrl.updateItem)
+app.delete('/api/backpack-items/:id', inventoryCtrl.deleteItem)
 
 
 

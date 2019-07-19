@@ -1,5 +1,6 @@
 const inventoryItems = [
     {
+        id: 1,
         item: 'Klymit 20 Bag',
         description: 'Super warm sleeping bag, lightweight, packable.  Synthetic down.',
         price: 220,
@@ -9,6 +10,7 @@ const inventoryItems = [
         inpack: false
     },
     {
+        id: 2,
         item: 'Wilderness Technology Tent',
         description: '1.5 man super lightweight tent with waterproof sidewalls',
         price: 200,
@@ -18,6 +20,7 @@ const inventoryItems = [
         inpack: false
     },
     {
+        id: 3,
         item: 'Klymit Sleeping Pad',
         description: 'Static V regular length inflatable sleeping pad',
         price: 55,
@@ -27,6 +30,7 @@ const inventoryItems = [
         inpack: false
     },
     {
+        id: 4,
         item: 'Jetboil',
         description: 'Jetboil cooking stove',
         price: 100,
@@ -36,28 +40,31 @@ const inventoryItems = [
         inpack: false
     }
 ]
-
+let id = 5
 module.exports = {
 getItems (req, res) {
     res.status(200).send(inventoryItems)
 },
 addItem (req, res) {
+    req.body.id = id++
     inventoryItems.push(req.body)
     res.status(200).send(inventoryItems)
 },
 updateItem (req, res) {
-    const {item} = req.params
+    // console.log(req.params, req.body)
+    const {id} = req.params
     const {price} = req.body
     const index = inventoryItems.findIndex(el => (
-        el.item === item
+        el.id === +id
     ))
+
     inventoryItems[index].price = price
     res.status(200).send(inventoryItems)
 },
 deleteItem (req, res) {
-    const {item} = req.params
+    const {id} = req.params
     const index = inventoryItems.findIndex(el => (
-        el.item === item
+        el.id === +id
     ))
     inventoryItems.splice(index, 1)
     res.status(200).send(inventoryItems)

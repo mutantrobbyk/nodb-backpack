@@ -1,35 +1,29 @@
 import React, { Component } from "react";
 import NewItem from "./NewItem";
-
+import Item from './Item'
 export default class Inventory extends Component {
+  constructor() {
+    super();
+    this.state = {
+      price: "",
+      editing: false
+    };
+  }
+ 
   render() {
     return (
       <div>
-
-      <div className="shelf">
-        {this.props.allGear.map(el => {
-          return (
-            <div className='itemBox' key={el.item}>
-            <div className='itemInfo'>
-            <img className='itemPic' src={el.image} alt=""/>
-            <div className='itemS'>
-              <p>{el.item}</p>
-              <p>{el.description}</p>
-              <p>Price: ${el.price}</p>
-              <p>Weight: {el.weight}lbs</p>
-            </div>
-            </div>
-            <div className='itemButtons'>
-              <button>add</button>
-              <button>edit</button>
-              <button>delete</button>
-            </div>
-              
-            </div>
-          );
-        })}
-
-      </div>
+        <div className="shelf">
+          {this.props.allGear.map((el, i) => {
+            return (
+              <Item el={el}
+              key={el.id}
+              deleteItem={this.props.deleteItem}
+              updateItem={this.props.updateItem}/>
+          
+            );
+          })}
+        </div>
         <NewItem addItemToGear={this.props.addItemToGear} />
       </div>
     );
