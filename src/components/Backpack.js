@@ -1,24 +1,29 @@
 import React, {Component} from 'react'
-import axios from 'axios';
+import BackpackItem from './BackpackItem'
 
-class Backpack extends Component {
+export default class Backpack extends Component {
     constructor () {
         super ()
         this.state = {
-            itemName: ''
+
         }
     }
-    packWeight() {
+    // packWeight() {
 
-    }
-    packValue() {
+    // }
+    // packValue() {
   
-    }
-    itemNumber() {
+    // }
+    // itemNumber() {
   
-    }
-    packRemove() {
+    // }
+    // packRemove() {
   
+    // }
+    render () {
+        return (
+        <BackpackItem/>
+        )
     }
 }
 
