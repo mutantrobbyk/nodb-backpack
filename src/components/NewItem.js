@@ -4,24 +4,27 @@ export default class NewItem extends Component {
     constructor() {
         super()
         this.state = {
-
+            inpack: false  
         }
     }
+   handleChange (e) {
+       this.setState({[e.target.placeholder]: e.target.value})
+   }
     render() {
-        console.log(this.props)
+        // console.log(this.props)
         return (
           <div>
             
             <div className="inputs">
               <div>
-                <input type="text" placeholder='item'/>
-                <input type="text" placeholder='description' />
-                <input type="text" placeholder='price'/>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='item'/>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='description' />
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='price'/>
               </div>
               <div>
-                <input type="text" placeholder='category'/>
-                <input type="text" placeholder='weight'/>
-                <input type="text" placeholder='image'/>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='category'/>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='weight'/>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='image'/>
               </div>
               <div class='dropdown'>
                   <span>In Pack? </span>
@@ -29,7 +32,7 @@ export default class NewItem extends Component {
                       <p>false</p>
                   </div>
               </div>
-            <button onClick={() => this.props.addItemToGear()}>Add Item</button>
+            <button onClick={() => this.props.addItemToGear(this.state)}>Add Item</button>
             </div>
               
             

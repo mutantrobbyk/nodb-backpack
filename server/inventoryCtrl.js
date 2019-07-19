@@ -34,15 +34,6 @@ const inventoryItems = [
         weight: .8,
         image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
         inpack: false
-    },
-    {
-        item: 'Jetboil',
-        description: 'Jetboil cooking stove',
-        price: 100,
-        category: 'food',
-        weight: .8,
-        image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
-        inpack: false
     }
 ]
 
