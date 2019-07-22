@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from "react"
 
 export default class BackpackItem extends Component {
   render() {
@@ -10,12 +10,25 @@ export default class BackpackItem extends Component {
           alt=""
         />
         <div className="calculations">
-          <div className="weight">weight</div>
-          <div className="value">value</div>
-          <div className="itemNumber">Items</div>
+          <div className="weight">weight: <br/>{this.props.allGear.filter(el => el.inpack === true).reduce((acc, el) => (
+            acc + el.weight
+          ), 0)}lbs</div>
+          <div className="value">value: <br/>${this.props.allGear.filter(el => el.inpack === true).reduce((acc, el) => (
+             acc + el.price), 0
+          
+          )}</div>
+          <div className="itemNumber">items: <br/>{this.props.allGear.filter(el => el.inpack === true).length}</div>
         </div>
+        
+        <div className="visual" >{this.props.allGear.filter(el => el.inpack === true).map((el) => {
+          return <div className='pack' key={el.id}>
 
-        <div className="visual" />
+          <div className='item1'>
+            <p>{el.item}</p>
+            </div>
+            <button className='remove' onClick={() => this.props.removeFromPack(el.id)}>remove</button>
+          </div>
+        })}</div>
       </div>
     );
   }

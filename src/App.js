@@ -9,12 +9,14 @@ export default class App extends Component {
     super();
     this.state = {
       allGear: [],
-      // gearPacked: []
     };
     this.addItemToGear = this.addItemToGear.bind(this);
-    this.updateItem = this.updateItem.bind(this)
-    this.deleteItem = this.deleteItem.bind(this)
-    // this.packItem = this.packItem.bind(this)
+    this.updateItem = this.updateItem.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
+    this.searchItems = this.searchItems.bind(this);
+    this.addToPack = this.addToPack.bind(this)
+    this.removeFromPack = this.removeFromPack.bind(this)
+
   }
   componentDidMount() {
     axios.get("/api/backpack-items").then(res => {
@@ -22,45 +24,74 @@ export default class App extends Component {
     });
   }
   addItemToGear(body) {
-    // console.log(body)
-    axios.post(`/api/backpack-items`, body).then(res => {
-      this.setState({ allGear: res.data });
-    }).catch(function(error){(console.log(error))})
+    axios
+      .post(`/api/backpack-items`, body)
+      .then(res => {
+        this.setState({ allGear: res.data });
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
   updateItem(id, body) {
-    axios.put(`/api/backpack-items/${id}`, body).then(res => {
-      this.setState({ allGear: res.data });
-    }).catch(function(error){(console.log(error))})
+    axios
+      .put(`/api/backpack-items/${id}`, body)
+      .then(res => {
+        this.setState({ allGear: res.data })
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
   }
-  
-  deleteItem = async(id) =>  {
-    let response = await axios.delete(`/api/backpack-items/${id}`) //Sam wrot this to solve my problem...
+  searchItems(item) {
+    axios.get(`/api/backpack-items/search?item=${item}`)
+    .then(res => {
+      this.setState({allGear: res.data})
+    })
+  }
+  deleteItem = async id => {
+    let response = await axios.delete(`/api/backpack-items/${id}`); //Sam wrot this to solve my problem...
     this.setState({
       allGear: response.data
-    }).catch(function(error){(console.log(error))})
+    })
   }
-  // packItem (id){
-    //     this.state.allGear.filter(() => {
-      //       this.state.allGear.id == id
-      //     })
-      
-      // }
-      render() {
-        console.log(this.state.allGear)
-        
-        return (
-          <body>
+  addToPack (id) {
+    axios.put(`/api/backpack-items/${id}`, {inpack:true})
+    .then(res => {
+      this.setState({
+        allGear:res.data
+      })
+    }) 
+  }
+  removeFromPack (id) {
+    axios.put(`/api/backpack-items/${id}`, {inpack:false})
+    .then(res => {
+      this.setState({
+        allGear:res.data
+      })
+    })
+  }
+
+  render() {
+    console.log(this.state.allGear)
+
+    return (
+      <div>
         <div>
-          <Backpack />
+          <Backpack 
+          allGear={this.state.allGear}
+          removeFromPack={this.removeFromPack}
+          />
           <Inventory
             deleteItem={this.deleteItem}
             addItemToGear={this.addItemToGear}
             allGear={this.state.allGear}
             updateItem={this.updateItem}
-            packItem={this.packItem}
+            searchItems={this.searchItems}
+            addToPack={this.addToPack}
           />
         </div>
-      </body>
+      </div>
     );
   }
 }

@@ -16,13 +16,16 @@ export default class NewItem extends Component {
           <div>
             
             <div className="inputs">
-              <div>
+              <div className='first2'>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='item'/>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='description' />
-                <input onChange={e => this.handleChange(e)} type="text" placeholder='price'/>
               </div>
-              <div>
+              <div className='second2'>
+                <input onChange={e => this.handleChange(e)} type="text" placeholder='price'/>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='category'/>
+
+              </div>
+              <div className='third2'>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='weight'/>
                 <input onChange={e => this.handleChange(e)} type="text" placeholder='image'/>
               </div>
@@ -32,7 +35,10 @@ export default class NewItem extends Component {
                       <p>false</p>
                   </div>
               </div> */}
-            <button onClick={() => this.props.addItemToGear(this.state)}>Add Item</button>
+              <div className='addItem'>
+
+            <button  onClick={() => this.props.addItemToGear(this.state)}>Add Item</button>
+              </div>
             </div>
               
             

@@ -5,17 +5,17 @@ const inventoryItems = [
         description: 'Super warm sleeping bag, lightweight, packable.  Synthetic down.',
         price: 220,
         category: 'sleep',
-        weight: 3.1,
+        weight: 3,
         image: 'https://www.klymit.com/pub/media/catalog/product/cache/small_image/320x380/beff4985b56e3afdbeabfc89641a4582/k/l/klymit_oversize_20_copy_copy.jpg',
         inpack: false
     },
     {
         id: 2,
-        item: 'Wilderness Technology Tent',
-        description: '1.5 man super lightweight tent with waterproof sidewalls',
+        item:  'Tent',
+        description: 'Wilderness Technology 1.5 man super lightweight tent with waterproof sidewalls',
         price: 200,
         category: 'sleep',
-        weight: 2.8,
+        weight: 3,
         image: 'https://recreationoutlet.com/media/catalog/product/cache/1/small_image/300x400/9df78eab33525d08d6e5fb8d27136e95/w/t/wt_airlight_ul2_open_front_1.jpg',
         inpack: false
     },
@@ -25,7 +25,7 @@ const inventoryItems = [
         description: 'Static V regular length inflatable sleeping pad',
         price: 55,
         category: 'sleep',
-        weight: 1.4,
+        weight: 1,
         image: 'https://www.klymit.com/pub/media/catalog/product/cache/small_image/320x380/beff4985b56e3afdbeabfc89641a4582/a/r/armoredv_whitebackground.png',
         inpack: false
     },
@@ -35,7 +35,7 @@ const inventoryItems = [
         description: 'Jetboil cooking stove',
         price: 100,
         category: 'food',
-        weight: .8,
+        weight: 1,
         image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
         inpack: false
     },
@@ -45,7 +45,7 @@ const inventoryItems = [
         description: 'Vortex razor HD spotting scope',
         price: 1700,
         category: 'optics',
-        weight: 4.1,
+        weight: 4,
         image: 'https://op1.0ps.us/365-240-ffffff/opplanet-vortex-razor-hd-85mm-angled-spotting-scope-rzr-main.jpg',
         inpack: false
     },
@@ -65,7 +65,7 @@ const inventoryItems = [
         description: 'Sawyer mini water filter',
         price: 20,
         category: 'hydration',
-        weight: .125,
+        weight: 1,
         image: 'https://www.ems.com/on/demandware.static/-/Sites-vestis-master-catalog/default/dw69699745/product/images/1308/794/1308794/1308794_915_alt2.jpg',
         inpack: false
     },
@@ -75,7 +75,7 @@ const inventoryItems = [
         description: 'Browning A-bolt gold medallion 30-06',
         price: 1200,
         category: 'weapon',
-        weight: 6.7,
+        weight: 7,
         image: 'https://www.browning.com/content/dam/browning/product/firearms/rifles/x-bolt/white-gold/Browning%20X-Bolt%20White%20Gold%20Medallion%20-%20035235226_D1%20(1).jpg/_jcr_content/renditions/original.img.jpg',
         inpack: false
     },
@@ -85,7 +85,7 @@ const inventoryItems = [
         description: 'PSE Archery 70lb single cam compound bow',
         price: 400,
         category: 'weapon',
-        weight: 4.5,
+        weight: 5,
         image: 'https://media.mwstatic.com/product-images/880x660/Primary/314/314243.jpg',
         inpack: false
     },
@@ -95,7 +95,7 @@ const inventoryItems = [
         description: 'Vortex Ranger 1800 rangefinder',
         price: 350,
         category: 'optics',
-        weight: .5,
+        weight: 1,
         image: 'https://www.ammoland.com/wp-content/uploads/2012/02/Vortex-Ranger-1000-Rangefinder.jpg',
         inpack: false
     },
@@ -111,14 +111,19 @@ addItem (req, res) {
     res.status(200).send(inventoryItems)
 },
 updateItem (req, res) {
-    // console.log(req.params, req.body)
+
     const {id} = req.params
-    const {price} = req.body
+    const {price, inpack} = req.body
     const index = inventoryItems.findIndex(el => (
         el.id === +id
     ))
-
-    inventoryItems[index].price = price
+    if(inpack == true) {
+        inventoryItems[index].inpack = true
+    } else if (inpack == false) {
+        inventoryItems[index].inpack = false
+    }else {
+        inventoryItems[index].price = price
+    }
     res.status(200).send(inventoryItems)
 },
 deleteItem (req, res) {
@@ -128,5 +133,11 @@ deleteItem (req, res) {
     ))
     inventoryItems.splice(index, 1)
     res.status(200).send(inventoryItems)
+},
+searchItem (req, res) {
+    let search = inventoryItems.filter(el => (
+        el.item.toLowerCase() === req.query.item.toLowerCase()
+    ))
+    res.status(200).send(search)
 }
 }

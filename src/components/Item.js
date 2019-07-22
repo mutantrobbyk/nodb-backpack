@@ -20,7 +20,9 @@ export default class Item extends Component {
         this.props.updateItem(id, { price: this.state.price });
         this.toggleEdit();
       }
+ 
     render () {
+      console.log(this.props.addToPack)
         return (
             <div className="itemBox" >
                 <div className="itemInfo">
@@ -33,7 +35,7 @@ export default class Item extends Component {
                   </div>
                 </div>
                 <div className="itemButtons">
-                  <button>add</button>
+                  <button onClick={() => this.props.addToPack(this.props.el.id)}>add</button>
                   {this.state.editing ? (
                     <div>
                       <input

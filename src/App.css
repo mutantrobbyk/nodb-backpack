@@ -6,10 +6,10 @@ body {
   height: 100vh;
   justify-content: center;
   margin-top: 20px;
-  background-color: olive
+  background-color: rgb(47, 101, 133)
 }
 .backpack {
-  border: solid blue;
+  box-shadow: 10px 10px 5px black;
   height: 45vh;
   width: 80vw;
   background-color: white;
@@ -31,21 +31,80 @@ body {
 .visual {
   height: 40vh;
   width: 50vw;
-  border: solid red;
+  background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+  padding-left: 5px;
+  padding-top: 5px;
+}
+.pack {
+  display: flex;
+}
+.item1 {
+  height: 20px;
+  width: 200px;
+  position: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+.remove {
+  height: 20px;
+}
+.searchbar{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.search {
+  height: 20px;
+  width: 150px;
+  border-radius: 15px;
 }
 .shelf {
-  border: solid black;
+  box-shadow: 10px 10px 5px black;
   height: 30vh;
   background-color: white;
-  margin-top: 5px;
+  margin-top: 20px;
   margin-bottom: 5px;
 }
 .inputs {
-  border: solid red;
+  box-shadow: 10px 10px 5px black;
+  width: 80vw;
   height: 10vh;
-  background-color: white;
-  /* display: flex;
-  justify-content: space-between; */
+  background-color: lightgray;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.first2 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  padding: 10px;
+  width: 15vw;
+}
+.second2 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  padding: 10px;
+  width: 15vw;
+}
+.third2 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  padding: 10px;
+  width: 15vw;
+}
+.addItem {
+  display: flex;
+  padding: 15px;
 }
 .dropdown {
   position: relative;

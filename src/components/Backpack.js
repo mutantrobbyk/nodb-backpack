@@ -8,21 +8,14 @@ export default class Backpack extends Component {
 
         }
     }
-    // packWeight() {
 
-    // }
-    // packValue() {
-  
-    // }
-    // itemNumber() {
-  
-    // }
-    // packRemove() {
-  
-    // }
     render () {
+
         return (
-        <BackpackItem/>
+        <BackpackItem 
+        allGear={this.props.allGear}
+        removeFromPack={this.props.removeFromPack}
+        />
         )
     }
 }
