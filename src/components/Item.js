@@ -35,7 +35,7 @@ export default class Item extends Component {
           </div>
         </div>
         <div className="itemButtons">
-          <button onClick={() => addToPack(el.id)}>
+          <button className='add' onClick={() => addToPack(el.id)}>
             add
           </button>
           {this.state.editing ? (
@@ -54,10 +54,11 @@ export default class Item extends Component {
               <button onClick={() => this.toggleEdit()}>Cancel</button>
             </div>
           ) : (
-            <p onClick={() => this.toggleEdit()} />
+            null
           )}
           {!this.state.editing && (
             <button
+              className='edit'
               onClick={() => {
                 this.toggleEdit();
               }}
@@ -66,6 +67,7 @@ export default class Item extends Component {
             </button>
           )}
           <button
+            className='delete'
             onClick={() => {
               deleteItem(el.id);
             }}

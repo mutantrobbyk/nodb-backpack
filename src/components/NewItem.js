@@ -64,6 +64,7 @@ export default class NewItem extends Component {
           </div>
           <div className="addItem">
             <button
+              className='additembutton'
               onClick={() => {
                 this.props.addItemToGear(this.state);
                 this.setState({

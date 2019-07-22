@@ -3,7 +3,7 @@
 }
 body {
   display: flex;
-  height: 120vh;
+  height: 150vh;
   justify-content: center;
   margin-top: 20px;
   background-color: rgb(47, 101, 133)
@@ -46,15 +46,30 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 5px;
+  box-shadow: 4px 4px 2px darkgray;
 }
 .weight {
   text-align: center;
+  background-color: white;
+  border-radius: 16px;
+  width: 80px;
+  box-shadow: 4px 4px 2px;
+  margin-top: 10px
 }
 .value {
   text-align: center;
+  background-color: white;
+  border-radius: 16px;
+  width: 80px;
+  box-shadow: 4px 4px 2px;
 }
 .itemNumber {
   text-align: center;
+  background-color: white;
+  border-radius: 16px;
+  width: 80px;
+  box-shadow: 4px 4px 2px;
+  margin-bottom: 10px;
 }
 .visual {
   height: 40vh;
@@ -62,9 +77,10 @@ h1 {
   background-color: lightgray;
   display: flex;
   flex-direction: column;
-  margin-right: 5px;
+  margin-right: 10px;
   padding-left: 5px;
   padding-top: 5px;
+  box-shadow: 4px 4px 2px darkgray
 }
 .pack {
   display: flex;
@@ -76,9 +92,13 @@ h1 {
   background-color: white;
   border-radius: 10px;
   margin-bottom: 5px;
+  padding-left: 5px;
+  box-shadow: 4px 4px 2px;
 }
 .remove {
   height: 20px;
+  margin-left: 5px;
+  box-shadow: 3px 3px 1.5px;
 }
 .searchbar{
   display: flex;
@@ -102,7 +122,7 @@ h1 {
   width: 80vw;
   height: 10vh;
   background-color: lightgray;
-  margin-top: 20px;
+  margin-top: 40px;
   display: flex;
   justify-content: space-between;
 }
@@ -134,28 +154,15 @@ h1 {
   display: flex;
   padding: 15px;
 }
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba (0,0,0,0.2);
-  padding: 12px 16px;
-  z-index: 1;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
+.additembutton {
+  box-shadow: 2px 2px 1px;
 }
 .shelf {
   width: 80vw;
   display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: space-around;
 	align-items: center;
 	align-content: space-between;
   overflow: scroll;
@@ -164,9 +171,11 @@ h1 {
   display: flex;
   justify-content: space-between;
   height: 12vh;
-  width: 39vw;
+  width: 37vw;
   background-color: lightgray;
-  margin: 5px;
+  margin: 10px;
+  padding: 5px;
+  box-shadow: 4px 4px 2px darkgray;
 }
 .itemInfo {
   display: flex;
@@ -174,6 +183,7 @@ h1 {
 }
 .itemPic {
   height: 50px;
+  margin-right: 5px;
 }
 .itemS {
   font-size: .8em;
@@ -185,5 +195,14 @@ p {
 .itemButtons {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.add {
+  box-shadow: 1px 1px .5px;
+}
+.edit {
+  box-shadow: 1px 1px .5px;
+}
+.delete {
+  box-shadow: 1px 1px .5px;
 }

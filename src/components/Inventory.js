@@ -8,11 +8,12 @@ export default class Inventory extends Component {
     this.state = {
       price: "",
       editing: false,
-      item: ""
+      item: "",
+      search: ''
     };
   }
   searchItem(e) {
-    this.setState({ item: e });
+    this.setState({ search: e });
   }
 
   render() {
@@ -21,10 +22,14 @@ export default class Inventory extends Component {
         <div className="searchbar">
           <input
             className="search"
-            placeholder="search"
+            placeholder="search for something"
             onChange={e => this.searchItem(e.target.value)}
+            value={this.state.search}
           />
-          <button onClick={e => this.props.searchItems(this.state.item)}>
+          <button onClick={e => {this.props.searchItems(this.state.search);
+          this.setState({
+            search: ''
+          })}}>
             search
           </button>
         </div>
