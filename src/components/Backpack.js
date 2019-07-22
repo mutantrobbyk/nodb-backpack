@@ -1,13 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import BackpackItem from "./BackpackItem";
 
-export default class Backpack extends Component {
-  render() {
+export default function Backpack (props) {
     return (
       <BackpackItem
-        allGear={this.props.allGear}
-        removeFromPack={this.props.removeFromPack}
+        allGear={props.allGear}
+        removeFromPack={props.removeFromPack}
       />
     );
   }
-}
+

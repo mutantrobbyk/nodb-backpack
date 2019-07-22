@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import Backpackimage from "./Backpack.jpeg";
+import Icon from './Icon'
 
 export default class BackpackItem extends Component {
   render() {
     return (
       <div>
-        <header>Rob's Fantastic Backpack Packing Tool</header>
+        <header>
+          <Icon/>
+          <h1>Rob's Fantastic Backpack Packing Tool</h1>
+          <Icon/>
+          </header>
         <div className="backpack">
           <img className="packpic" src={Backpackimage} alt="" />
           <div className="calculations">

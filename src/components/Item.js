@@ -22,20 +22,20 @@ export default class Item extends Component {
   }
 
   render() {
-    console.log(this.props.addToPack);
+    let {el, deleteItem, addToPack} = this.props
     return (
       <div className="itemBox">
         <div className="itemInfo">
-          <img className="itemPic" src={this.props.el.image} alt="" />
+          <img className="itemPic" src={el.image} alt="" />
           <div className="itemS">
-            <p><b>{this.props.el.item}</b></p>
-            <p>{this.props.el.description}</p>
-            <p>Price: ${this.props.el.price}</p>
-            <p>Weight: {this.props.el.weight}lbs</p>
+            <p><b>{el.item}</b></p>
+            <p>{el.description}</p>
+            <p>Price: ${el.price}</p>
+            <p>Weight: {el.weight}lbs</p>
           </div>
         </div>
         <div className="itemButtons">
-          <button onClick={() => this.props.addToPack(this.props.el.id)}>
+          <button onClick={() => addToPack(el.id)}>
             add
           </button>
           {this.state.editing ? (
@@ -48,7 +48,7 @@ export default class Item extends Component {
                 type="text"
                 value={this.state.price}
               />
-              <button onClick={() => this.updatePrice(this.props.el.id)}>
+              <button onClick={() => this.updatePrice(el.id)}>
                 Save
               </button>
               <button onClick={() => this.toggleEdit()}>Cancel</button>
@@ -67,7 +67,7 @@ export default class Item extends Component {
           )}
           <button
             onClick={() => {
-              this.props.deleteItem(this.props.el.id);
+              deleteItem(el.id);
             }}
           >
             delete
