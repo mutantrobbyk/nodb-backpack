@@ -28,7 +28,7 @@ export default class Item extends Component {
         <div className="itemInfo">
           <img className="itemPic" src={this.props.el.image} alt="" />
           <div className="itemS">
-            <p>{this.props.el.item}</p>
+            <p><b>{this.props.el.item}</b></p>
             <p>{this.props.el.description}</p>
             <p>Price: ${this.props.el.price}</p>
             <p>Weight: {this.props.el.weight}lbs</p>

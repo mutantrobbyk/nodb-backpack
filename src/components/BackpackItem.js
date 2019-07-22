@@ -10,20 +10,20 @@ export default class BackpackItem extends Component {
           <img className="packpic" src={Backpackimage} alt="" />
           <div className="calculations">
             <div className="weight">
-              Weight: <br />
+              <b>Weight:</b> <br />
               {this.props.allGear
                 .filter(el => el.inpack === true)
-                .reduce((acc, el) => acc + el.weight, 0)}
+                .reduce((acc, el) => acc + +el.weight, 0)}
               lbs
             </div>
             <div className="value">
-              Value: <br />$
+              <b>Value:</b> <br />$
               {this.props.allGear
                 .filter(el => el.inpack === true)
-                .reduce((acc, el) => acc + el.price, 0)}
+                .reduce((acc, el) => acc + +el.price, 600)}
             </div>
             <div className="itemNumber">
-              Items: <br />
+              <b>Items:</b> <br />
               {this.props.allGear.filter(el => el.inpack === true).length}
             </div>
           </div>
