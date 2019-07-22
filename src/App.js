@@ -8,15 +8,14 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      allGear: [],
+      allGear: []
     };
     this.addItemToGear = this.addItemToGear.bind(this);
     this.updateItem = this.updateItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
     this.searchItems = this.searchItems.bind(this);
-    this.addToPack = this.addToPack.bind(this)
-    this.removeFromPack = this.removeFromPack.bind(this)
-
+    this.addToPack = this.addToPack.bind(this);
+    this.removeFromPack = this.removeFromPack.bind(this);
   }
   componentDidMount() {
     axios.get("/api/backpack-items").then(res => {
@@ -37,50 +36,45 @@ export default class App extends Component {
     axios
       .put(`/api/backpack-items/${id}`, body)
       .then(res => {
-        this.setState({ allGear: res.data })
+        this.setState({ allGear: res.data });
       })
       .catch(function(error) {
         console.log(error);
       });
   }
   searchItems(item) {
-    axios.get(`/api/backpack-items/search?item=${item}`)
-    .then(res => {
-      this.setState({allGear: res.data})
-    })
+    axios.get(`/api/backpack-items/search?item=${item}`).then(res => {
+      this.setState({ allGear: res.data });
+    });
   }
   deleteItem = async id => {
     let response = await axios.delete(`/api/backpack-items/${id}`); //Sam wrot this to solve my problem...
     this.setState({
       allGear: response.data
-    })
-  }
-  addToPack (id) {
-    axios.put(`/api/backpack-items/${id}`, {inpack:true})
-    .then(res => {
+    });
+  };
+  addToPack(id) {
+    axios.put(`/api/backpack-items/${id}`, { inpack: true }).then(res => {
       this.setState({
-        allGear:res.data
-      })
-    }) 
+        allGear: res.data
+      });
+    });
   }
-  removeFromPack (id) {
-    axios.put(`/api/backpack-items/${id}`, {inpack:false})
-    .then(res => {
+  removeFromPack(id) {
+    axios.put(`/api/backpack-items/${id}`, { inpack: false }).then(res => {
       this.setState({
-        allGear:res.data
-      })
-    })
+        allGear: res.data
+      });
+    });
   }
 
   render() {
-    console.log(this.state.allGear)
-
     return (
       <div>
         <div>
-          <Backpack 
-          allGear={this.state.allGear}
-          removeFromPack={this.removeFromPack}
+          <Backpack
+            allGear={this.state.allGear}
+            removeFromPack={this.removeFromPack}
           />
           <Inventory
             deleteItem={this.deleteItem}

@@ -3,10 +3,19 @@
 }
 body {
   display: flex;
-  height: 100vh;
+  height: 120vh;
   justify-content: center;
   margin-top: 20px;
   background-color: rgb(47, 101, 133)
+}
+header {
+  margin-bottom: 20px;
+  color: white;
+  font-size: 3em;
+  text-align: center;
+  text-shadow: 6px 6px 3px black;
+  font-family: 'Varela Round', sans-serif;
+
 }
 .backpack {
   box-shadow: 10px 10px 5px black;
@@ -19,14 +28,26 @@ body {
 }
 .packpic {
   height: 300px;
+  margin-left: 20px
 }
 .calculations {
   height: 30vh;
   width: 10vw;
-  border: solid red;
+  background-color: lightgray;
   display: flex;
   flex-direction: column;
-  justify-content: space-between
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.weight {
+  text-align: center;
+}
+.value {
+  text-align: center;
+}
+.itemNumber {
+  text-align: center;
 }
 .visual {
   height: 40vh;
