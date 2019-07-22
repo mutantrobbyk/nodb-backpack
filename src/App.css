@@ -13,6 +13,25 @@ body {
   height: 45vh;
   width: 80vw;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.packpic {
+  height: 300px;
+}
+.calculations {
+  height: 30vh;
+  width: 10vw;
+  border: solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between
+}
+.visual {
+  height: 40vh;
+  width: 50vw;
+  border: solid red;
 }
 .shelf {
   border: solid black;

@@ -38,9 +38,69 @@ const inventoryItems = [
         weight: .8,
         image: 'https://jetboil.johnsonoutdoors.com/sites/johnsonoutdoors-store/files/assets/images/10/1/1097716_primary/1097716_primary.png',
         inpack: false
-    }
+    },
+    {
+        id: 5,
+        item: 'Spotting Scope',
+        description: 'Vortex razor HD spotting scope',
+        price: 1700,
+        category: 'optics',
+        weight: 4.1,
+        image: 'https://op1.0ps.us/365-240-ffffff/opplanet-vortex-razor-hd-85mm-angled-spotting-scope-rzr-main.jpg',
+        inpack: false
+    },
+    {
+        id: 6,
+        item: 'Tripod',
+        description: 'Vortex summit tripod',
+        price: 130,
+        category: 'optics',
+        weight: 2,
+        image: 'https://cdn.shopify.com/s/files/1/0785/3853/products/SHL257.jpeg?v=1510698577',
+        inpack: false
+    },
+    {
+        id: 7,
+        item: 'Water Filter',
+        description: 'Sawyer mini water filter',
+        price: 20,
+        category: 'hydration',
+        weight: .125,
+        image: 'https://www.ems.com/on/demandware.static/-/Sites-vestis-master-catalog/default/dw69699745/product/images/1308/794/1308794/1308794_915_alt2.jpg',
+        inpack: false
+    },
+    {
+        id: 8,
+        item: 'Rifle',
+        description: 'Browning A-bolt gold medallion 30-06',
+        price: 1200,
+        category: 'weapon',
+        weight: 6.7,
+        image: 'https://www.browning.com/content/dam/browning/product/firearms/rifles/x-bolt/white-gold/Browning%20X-Bolt%20White%20Gold%20Medallion%20-%20035235226_D1%20(1).jpg/_jcr_content/renditions/original.img.jpg',
+        inpack: false
+    },
+    {
+        id: 9,
+        item: 'Bow',
+        description: 'PSE Archery 70lb single cam compound bow',
+        price: 400,
+        category: 'weapon',
+        weight: 4.5,
+        image: 'https://media.mwstatic.com/product-images/880x660/Primary/314/314243.jpg',
+        inpack: false
+    },
+    {
+        id: 10,
+        item: 'Range Finder',
+        description: 'Vortex Ranger 1800 rangefinder',
+        price: 350,
+        category: 'optics',
+        weight: .5,
+        image: 'https://www.ammoland.com/wp-content/uploads/2012/02/Vortex-Ranger-1000-Rangefinder.jpg',
+        inpack: false
+    },
 ]
-let id = 5
+let id = 11
 module.exports = {
 getItems (req, res) {
     res.status(200).send(inventoryItems)

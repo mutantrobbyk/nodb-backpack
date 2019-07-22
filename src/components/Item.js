@@ -10,7 +10,7 @@ export default class Item extends Component {
     }
     handleChange(e) {
         this.setState({ price: e.target.value });
-        console.log(this.state.price);
+        // console.log(this.state.price);
       }
       toggleEdit() {
         this.setState({ editing: !this.state.editing });

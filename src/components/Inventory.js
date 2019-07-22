@@ -18,6 +18,7 @@ export default class Inventory extends Component {
             return (
               <Item el={el}
               key={el.id}
+              packItem={this.props.packItem}
               deleteItem={this.props.deleteItem}
               updateItem={this.props.updateItem}/>
           
