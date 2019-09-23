@@ -5,6 +5,7 @@ const PORT = 3001;
 const inventoryCtrl = require("./inventoryCtrl");
 
 app.use(express.json());
+app.use( express.static( `${__dirname}/../build` ) );
 
 app.get("/api/backpack-items", inventoryCtrl.getItems);
 app.post("/api/backpack-items", inventoryCtrl.addItem);
